@@ -1,6 +1,9 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
+import ICar from '../../../src/Interfaces/ICar';
+import Car from '../../../src/Domains/Car';
+import CarService from '../../../src/Services/CarService';
 
 describe('Cadastro de novos carros', function () {
   afterEach(function () {
@@ -13,22 +16,22 @@ describe('Cadastro de novos carros', function () {
       model: 'Marea',
       year: 2002,
       color: 'Black',
+      status: true,
       buyValue: 15990,
       doorsQty: 4,
       seatsQty: 5,
-      status: true,
     };
 
-    const output: Car = new Car(
-      '63319d80feb9f483ee823ac5',
-      'Marea',
-      2002,
-      'Black',
-      15990,
-      4,
-      5,
-      true,
-    );
+    const output: Car = new Car({
+      id: '63319d80feb9f483ee823ac5',
+      model: 'Marea',
+      year: 2002,
+      color: 'Black',
+      status: true,
+      buyValue: 15990,
+      doorsQty: 4,
+      seatsQty: 5,
+    });
 
     sinon.stub(Model, 'create').resolves(output);
 
