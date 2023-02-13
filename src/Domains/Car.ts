@@ -1,3 +1,5 @@
+import ICar from '../Interfaces/ICar';
+
 class Car {
   protected id: string | undefined;
   protected model: string;
@@ -8,24 +10,15 @@ class Car {
   private doorsQty: number;
   private seatsQty: number;
 
-  constructor(
-    id: string | undefined,
-    model: string,
-    year: number,
-    color: string,
-    status = false,
-    buyValue: number,
-    doorsQty: number,
-    seatsQty: number,
-  ) {
-    this.id = id;
-    this.model = model;
-    this.year = year;
-    this.color = color;
-    this.buyValue = buyValue;
-    this.doorsQty = doorsQty;
-    this.seatsQty = seatsQty;
-    this.status = status;
+  constructor(car: ICar) {
+    this.id = car.id;
+    this.model = car.model;
+    this.year = car.year;
+    this.color = car.color;
+    this.status = car.status;
+    this.buyValue = car.buyValue;
+    this.doorsQty = car.doorsQty;
+    this.seatsQty = car.seatsQty;
   }
 
   public setId(id: string) {
