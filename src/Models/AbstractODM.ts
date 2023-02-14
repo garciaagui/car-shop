@@ -37,6 +37,10 @@ abstract class AbstractODM<T> {
       { $set: { ...obj } } as UpdateQuery<T>,
     );
   }
+
+  public async delete(_id: string) {
+    return this.model.deleteOne({ _id });
+  }
 }
 
 export default AbstractODM;
