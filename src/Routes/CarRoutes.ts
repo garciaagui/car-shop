@@ -18,7 +18,7 @@ routes.get(
   (req, res, next) => new CarController(req, res, next).getById(),
 );
 
-routes.patch(
+routes.put(
   '/:id',
   (req, res, next) => new CarController(req, res, next).update(),
 );
