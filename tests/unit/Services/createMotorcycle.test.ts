@@ -1,6 +1,9 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
+import IMotorcycle from '../../../src/Interfaces/IMotorcycle';
+import Motorcycle from '../../../src/Domains/Motorcycle';
+import MotorcycleService from '../../../src/Services/MotorcycleService';
 
 describe('Testes de unidade de cadastro do Service de Motorcycle', function () {
   afterEach(function () {
