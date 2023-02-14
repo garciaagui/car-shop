@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import { Model } from 'mongoose';
 import Motorcycle from '../../../src/Domains/Motorcycle';
 import MotorcycleService from '../../../src/Services/MotorcycleService';
+import { validInput } from './Mocks/motorcycleMocks';
 
 describe('Testes de unidade de exclusão do Service de Motorcycle', function () {
   afterEach(function () {
@@ -13,19 +14,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     // Arrange
     
     const id = '63320b77aa12f0db4f210afe';
-
-    const findOutput = new Motorcycle(
-      {
-        id,
-        model: 'Honda Cb 600f Hornet',
-        year: 2005,
-        color: 'Yellow',
-        status: true,
-        buyValue: 30990,
-        category: 'Street',
-        engineCapacity: 600,
-      },
-    );
+    const findOutput = new Motorcycle({ id, ...validInput });
 
     sinon.stub(Model, 'findOne').resolves(findOutput);
     sinon.stub(Model, 'deleteOne').resolves();
@@ -40,7 +29,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
 
   it('Retorna uma exceção quando nenhuma moto for encontrada', async function () {
     // Arrange
-    const id = '63320b77aa12f0db4f210afe';
+    const noMotorcycleId = '63320b77aa12f0db4f210afe';
 
     sinon.stub(Model, 'findOne').resolves(null);
     sinon.stub(Model, 'deleteOne').resolves();
@@ -48,7 +37,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     // Act
     try {
       const service = new MotorcycleService();
-      await service.delete(id);
+      await service.delete(noMotorcycleId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Motorcycle not found');
@@ -57,7 +46,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
 
   it('Retorna uma exceção quando o id for inválido', async function () {
     // Arrange
-    const id = 'xxx';
+    const invalidId = 'xxx';
 
     sinon.stub(Model, 'findOne').resolves(null);
     sinon.stub(Model, 'deleteOne').resolves();
@@ -65,7 +54,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     // Act
     try {
       const service = new MotorcycleService();
-      await service.delete(id);
+      await service.delete(invalidId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');
