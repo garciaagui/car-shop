@@ -29,7 +29,7 @@ describe('Testes de unidade de atualização do Service de Motorcycle', function
 
     const updateInput: IMotorcycle = {
       id,
-      model: 'Yamaha TT-R230',
+      model: 'Honda Cb 600f Hornet',
       year: 2022,
       color: 'Blue',
       status: true,
