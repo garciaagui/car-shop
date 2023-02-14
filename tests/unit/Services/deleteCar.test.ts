@@ -34,7 +34,7 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
     const result = await service.delete(id);
 
     // Assert
-    expect(result).to.be.deep.equal({});
+    expect(result).to.be.deep.equal(undefined);
   });
 
   it('Retorna uma exceção quando nenhum carro for encontrado', async function () {
