@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
-import ICar from '../../../src/Interfaces/ICar';
 import Car from '../../../src/Domains/Car';
 import CarService from '../../../src/Services/CarService';
+import { validInput, validUpdateInput } from './Mocks/carMocks';
 
 describe('Testes de unidade de atualização do Service de Car', function () {
   afterEach(function () {
@@ -13,48 +13,15 @@ describe('Testes de unidade de atualização do Service de Car', function () {
   it('Retorna o carro atualizado com SUCESSO', async function () {
     // Arrange
     const id = '63320b77aa12f0db4f210afe';
-
-    const findOutput = new Car(
-      { id,
-        model: 'Marea',
-        year: 2002,
-        color: 'Black',
-        buyValue: 15990,
-        doorsQty: 4,
-        seatsQty: 5,
-        status: true,
-      },
-    );
-
-    const updateInput: ICar = {
-      id,
-      model: 'Santana',
-      year: 1999,
-      color: 'Grey',
-      buyValue: 10500,
-      doorsQty: 4,
-      seatsQty: 5,
-      status: true,
-    };
-
-    const updateOutput = new Car(
-      { id,
-        model: updateInput.model,
-        year: updateInput.year,
-        color: updateInput.color,
-        buyValue: updateInput.buyValue,
-        doorsQty: updateInput.doorsQty,
-        seatsQty: updateInput.seatsQty,
-        status: updateInput.status,
-      },
-    );
+    const findOutput = new Car({ id, ...validInput });
+    const updateOutput = new Car({ id, ...validUpdateInput });
 
     sinon.stub(Model, 'findOne').resolves(findOutput);
     sinon.stub(Model, 'updateOne').resolves();
 
     // Act
     const service = new CarService();
-    const result = await service.update(id, updateInput);
+    const result = await service.update(id, validUpdateInput);
 
     // Assert
     expect(result).to.be.deep.equal(updateOutput);
@@ -62,18 +29,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
 
   it('Retorna uma exceção quando nenhum carro for encontrado', async function () {
     // Arrange
-    const id = '63320b77aa12f0db4f210afe';
-
-    const updateInput: ICar = {
-      id,
-      model: 'Santana',
-      year: 1999,
-      color: 'Grey',
-      buyValue: 10500,
-      doorsQty: 4,
-      seatsQty: 5,
-      status: true,
-    };
+    const noCarId = '63320b77aa12f0db4f210aff';
 
     sinon.stub(Model, 'findOne').resolves(null);
     sinon.stub(Model, 'updateOne').resolves();
@@ -81,7 +37,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.update(id, updateInput);
+      await service.update(noCarId, validUpdateInput);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Car not found');
@@ -90,18 +46,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
 
   it('Retorna uma exceção quando o id for inválido', async function () {
     // Arrange
-    const id = 'xxx';
-
-    const updateInput: ICar = {
-      id,
-      model: 'Santana',
-      year: 1999,
-      color: 'Grey',
-      buyValue: 10500,
-      doorsQty: 4,
-      seatsQty: 5,
-      status: true,
-    };
+    const invalidId = 'xxx';
 
     sinon.stub(Model, 'findOne').resolves(null);
     sinon.stub(Model, 'updateOne').resolves();
@@ -109,7 +54,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.update(id, updateInput);
+      await service.update(invalidId, validUpdateInput);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');

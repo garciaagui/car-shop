@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
-import ICar from '../../../src/Interfaces/ICar';
 import Car from '../../../src/Domains/Car';
 import CarService from '../../../src/Services/CarService';
+import { validArrInput, validInput } from './Mocks/carMocks';
 
 describe('Testes de unidade de listagem do Service de Car', function () {
   afterEach(function () {
@@ -13,41 +13,7 @@ describe('Testes de unidade de listagem do Service de Car', function () {
   describe('Listagem de todos os carros', function () {
     it('Retorna todos os carros com SUCESSO', async function () {
       // Arrange
-      const input: ICar[] = [
-        {
-          id: '63320b77aa12f0db4f210afe',
-          model: 'Marea',
-          year: 2002,
-          color: 'Black',
-          buyValue: 15990,
-          doorsQty: 4,
-          seatsQty: 5,
-          status: true,
-        },
-        {
-          id: '63320b77aa12f0db4f210aff',
-          model: 'Gol',
-          year: 2014,
-          color: 'Red',
-          buyValue: 20000,
-          doorsQty: 4,
-          seatsQty: 5,
-          status: true,
-        },
-      ];
-  
-      const output = input.map((car) => {
-        const { id, model, year, color, status, buyValue, doorsQty, seatsQty } = car;
-        return new Car({
-          id,
-          model,
-          year,
-          color,
-          status,
-          buyValue,
-          doorsQty,
-          seatsQty });
-      });
+      const output = validArrInput.map((car) => new Car({ ...car }));
   
       sinon.stub(Model, 'find').resolves(output);
   
@@ -64,31 +30,7 @@ describe('Testes de unidade de listagem do Service de Car', function () {
     it('Retorna com SUCESSO o carro cujo id foi passado na URL', async function () {
       // Arrange
       const id = '63320b77aa12f0db4f210afe';
-  
-      const input: ICar = {
-        id,
-        model: 'Marea',
-        year: 2002,
-        color: 'Black',
-        buyValue: 15990,
-        doorsQty: 4,
-        seatsQty: 5,
-        status: true,
-      };
-
-      const { model, year, color, status, buyValue, doorsQty, seatsQty } = input;
-
-      const output = new Car(
-        { id,
-          model,
-          year,
-          color,
-          buyValue,
-          doorsQty,
-          seatsQty,
-          status,
-        },
-      );
+      const output = new Car({ id, ...validInput });
   
       sinon.stub(Model, 'findOne').resolves(output);
   
