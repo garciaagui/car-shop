@@ -5,6 +5,9 @@ import CarODM from '../Models/CarODM';
 import NotFoundException from '../Exceptions/NotFound';
 import UnprocessableException from '../Exceptions/Unprocessable';
 
+const CAR_NOT_FOUND_MESSAGE = 'Car not found';
+const INVALID_ID_MESSAGE = 'Invalid mongo id';
+
 class CarService {
   private createCarDomain(car: ICar | null): Car | null {
     if (car) {
@@ -36,20 +39,20 @@ class CarService {
   }
 
   public async getById(id: string) {
-    if (!isValidObjectId(id)) throw new UnprocessableException('Invalid mongo id');
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
 
     const carODM = new CarODM();
     const foundCar = await carODM.getById(id);
 
     if (!foundCar) {
-      throw new NotFoundException('Car not found');
+      throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
     }
 
     return this.createCarDomain(foundCar);
   }
 
   public async update(id: string, car: ICar) {
-    if (!isValidObjectId(id)) throw new UnprocessableException('Invalid mongo id');
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
     
     if (await this.getById(id)) {
       const carODM = new CarODM();
@@ -57,7 +60,18 @@ class CarService {
       return this.createCarDomain({ id, ...car }); 
     }
 
-    throw new NotFoundException('Car not found');
+    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
+  }
+
+  public async delete(id: string) {
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+    
+    if (await this.getById(id)) {
+      const carODM = new CarODM();
+      return carODM.delete(id);
+    }
+
+    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
   }
 }
 
