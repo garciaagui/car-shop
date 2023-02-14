@@ -1,6 +1,9 @@
+import { isValidObjectId } from 'mongoose';
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
+import NotFoundException from '../Exceptions/NotFound';
+import UnprocessableException from '../Exceptions/Unprocessable';
 
 class CarService {
   private createCarDomain(car: ICar | null): Car | null {
@@ -30,6 +33,19 @@ class CarService {
     const cars = await paymentODM.getAll();
     const carsArr = cars.map((car) => this.createCarDomain(car));
     return carsArr;
+  }
+
+  public async getById(id: string) {
+    if (!isValidObjectId(id)) throw new UnprocessableException('Invalid mongo id');
+
+    const carODM = new CarODM();
+    const foundCar = await carODM.getById(id);
+
+    if (!foundCar) {
+      throw new NotFoundException('Car not found');
+    }
+
+    return this.createCarDomain(foundCar);
   }
 }
 
