@@ -5,6 +5,9 @@ import MotorcycleODM from '../Models/MotorcycleODM';
 import NotFoundException from '../Exceptions/NotFound';
 import UnprocessableException from '../Exceptions/Unprocessable';
 
+const CAR_NOT_FOUND_MESSAGE = 'Motorcycle not found';
+const INVALID_ID_MESSAGE = 'Invalid mongo id';
+
 class MotorcycleService {
   private createMotorcycleDomain(motorcycle: IMotorcycle | null): Motorcycle | null {
     if (motorcycle) {
@@ -36,20 +39,20 @@ class MotorcycleService {
   }
 
   public async getById(id: string) {
-    if (!isValidObjectId(id)) throw new UnprocessableException('Invalid mongo id');
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
 
     const motorcycleODM = new MotorcycleODM();
     const foundMotorcycle = await motorcycleODM.getById(id);
 
     if (!foundMotorcycle) {
-      throw new NotFoundException('Motorcycle not found');
+      throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
     }
 
     return this.createMotorcycleDomain(foundMotorcycle);
   }
 
   public async update(id: string, motorcycle: IMotorcycle) {
-    if (!isValidObjectId(id)) throw new UnprocessableException('Invalid mongo id');
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
     
     if (await this.getById(id)) {
       const motorcycleODM = new MotorcycleODM();
@@ -57,7 +60,18 @@ class MotorcycleService {
       return this.createMotorcycleDomain({ id, ...motorcycle }); 
     }
 
-    throw new NotFoundException('Motorcycle not found');
+    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
+  }
+
+  public async delete(id: string) {
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+    
+    if (await this.getById(id)) {
+      const motorcycleODM = new MotorcycleODM();
+      return motorcycleODM.delete(id);
+    }
+
+    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
   }
 }
 
