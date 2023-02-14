@@ -53,9 +53,10 @@ class CarService {
     
     if (await this.getById(id)) {
       const carODM = new CarODM();
-      return carODM.update(id, car);
+      await carODM.update(id, car);
+      return this.createCarDomain({ id, ...car }); 
     }
-    
+
     throw new NotFoundException('Car not found');
   }
 }

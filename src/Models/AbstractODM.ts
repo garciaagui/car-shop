@@ -23,11 +23,18 @@ abstract class AbstractODM<T> {
     return this.model.findOne({ _id });
   }
 
-  public async update(_id: string, obj: Partial<T>): Promise<T | null> {
-    return this.model.findByIdAndUpdate(
+  // public async update(_id: string, obj: Partial<T>): Promise<T | null> {
+  //   return this.model.findByIdAndUpdate(
+  //     { _id },
+  //     { ...obj } as UpdateQuery<T>,
+  //     { new: true, select: { model: 1, color: 1 } },
+  //   );
+  // }
+
+  public async update(_id: string, obj: Partial<T>) {
+    return this.model.updateOne(
       { _id },
-      { ...obj } as UpdateQuery<T>,
-      { new: true },
+      { $set: { ...obj } } as UpdateQuery<T>,
     );
   }
 }
