@@ -1,4 +1,4 @@
-import Motorcycle from '../Domains/Motorcyle';
+import Motorcycle from '../Domains/Motorcycle';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleODM from '../Models/MotorcycleODM';
 
