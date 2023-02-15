@@ -28,7 +28,7 @@ abstract class AbstractODM<T> {
   //     { _id },
   //     { ...obj } as UpdateQuery<T>,
   //     { new: true, select: { model: 1, color: 1 } },
-  //   );
+  //   );;
   // }
 
   public async update(_id: string, obj: Partial<T>) {
