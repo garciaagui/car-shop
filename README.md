@@ -22,7 +22,13 @@
 
 Projeto **27** do curso de Desenvolvimento Web da [Trybe][trybe-site-url].
 
-<!-- Descrição -->
+Neste projeto, foi desenvolvida uma API para gerenciamento de uma concessionária de veículos, que permite realizar as operações de criação, visualização, atualização e deleção (CRUD) de carros e motos.
+
+A aplicação foi desenvolvida utilizando Node.js e TypeScript, e o banco de dados escolhido foi o MongoDB. A conexão com o banco de dados foi feita através do framework Mongoose, ODM (Object-Document Mapping) que facilita as interações com o MongoDB.
+
+Para garantir a qualidade do código, foram aplicados princípios importantes de desenvolvimento de software, como POO (Programação Orientada a Objetos), SOLID e DDD (Domain Driven Design). Com isso, a aplicação torna-se mais escalável e performática.
+
+Para assegurar que o código funciona adequadamente, foram criados testes unitários com a abordagem BDD (Behavior-driven development). Esse processo garante que a aplicação esteja sempre em bom estado e pronta para receber atualizações.
 
 <br/>
 
@@ -66,20 +72,10 @@ Projeto **27** do curso de Desenvolvimento Web da [Trybe][trybe-site-url].
 
 ## Funcionalidades
 
-<!-- <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul> -->
+<ul>
+  <li>Criar, listar, atualizar e deletar carros.</li>
+  <li>Criar, listar, atualizar e deletar motos.</li>
+</ul>
 
 <br/>
 
@@ -309,20 +305,12 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 ## Habilidades
 
-<!-- <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul> -->
+<ul>
+  <li>Implementação de operações CRUD.</li>
+  <li>Modelagem de dados com o ODM Mongoose.</li>
+  <li>Aplicação dos conceitos POO, SOLID e DDD.</li>
+  <li>Aplicação da metodologia BDD para criação de testes.</li>
+</ul>
 
 <br/>
 
