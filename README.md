@@ -1,8 +1,6 @@
-<h1 align="center">🚧 README EM CONSTRUÇÃO 🚧</h1>
-
 <a name="readme-top"></a>
 
-<h1 align="center">Projeto Car Shop 🚙</h1>
+<h1 align="center">Projeto Car Shop 🚙🛵</h1>
 
 <details>
   <summary>Sumário</summary><br />
@@ -28,7 +26,7 @@ A aplicação foi desenvolvida utilizando Node.js e TypeScript, e o banco de dad
 
 Para garantir a qualidade do código, foram aplicados princípios importantes de desenvolvimento de software, como POO (Programação Orientada a Objetos), SOLID e DDD (Domain Driven Design). Com isso, a aplicação torna-se mais escalável e performática.
 
-Para assegurar que o código funciona adequadamente, foram criados testes unitários com a abordagem BDD (Behavior-driven development). Esse processo garante que a aplicação esteja sempre em bom estado e pronta para receber atualizações.
+Para assegurar que o código funcione adequadamente, foram criados testes unitários com a abordagem BDD (Behavior-driven development). Esse processo garante que a aplicação esteja sempre em bom estado e pronta para receber atualizações.
 
 <br/>
 
@@ -43,6 +41,7 @@ Para assegurar que o código funciona adequadamente, foram criados testes unitá
 - [Node.js][node-url]
 - [MongoDB][mongodb-url]
 - [Mongoose][mongoose-url]
+- [Typescript][typescript-url]
 
 ---
 
@@ -86,7 +85,7 @@ Para rodar o projeto, siga os passos abaixo.
 1. Clone o repositório;
 
 ```
-git@github.com:garciaagui/trybe-project-27_car-shop.git
+git clone git@github.com:garciaagui/trybe-project-27_car-shop.git
 ```
 
 2. Navegue até a raiz do projeto;
@@ -148,7 +147,7 @@ docker-compose up -d
 docker exec -it car_shop bash
 ```
 
-> ⚠️ A partir de agora, **TODOS** os comandos (scripts) disponíveis no `package.json` (incluindo o npm install) devem ser executados **DENTRO** do container `blogs_api`.
+> ⚠️ A partir de agora, **TODOS** os comandos (scripts) disponíveis no `package.json` (incluindo o npm install) devem ser executados **DENTRO** do container `car_shop`.
 
 4. Instale as dependências do projeto.
 
@@ -184,6 +183,8 @@ npm run test:coverage
 ## Endpoints
 
 Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. Para realizar as requisições HTTP e consultar o comportamento de cada endpoint, você pode utilizar a extensão [Thunder Client](https://www.thunderclient.com/).
+
+> ℹ️ Para todos os endpoints que exijam o id dos carros e motos, atente-se que o id é um `ObjectId`. Saiba mais sobre ObjectId [aqui](https://www.mongodb.com/docs/manual/reference/bson-types/#objectid).
 
 <details>
   <summary><strong>Cars</strong></summary>
@@ -264,7 +265,7 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
   "color": "Yellow",
   "status": true, // Não é obrigatório. Se não for inserido, o valor do status será 'false'
   "buyValue": 30.000,
-  "category": "Street", // Possíveis valores: "Street", "Custom" ou "Trail"
+  "category": "Street", // Valores aceitos: "Street", "Custom" ou "Trail"
   "engineCapacity": 600
 }
 ```
@@ -287,7 +288,7 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
   "color": "Red",
   "status": true, // Não é obrigatório. Se não for inserido, o valor do status será 'false'
   "buyValue": 45.000,
-  "category": "Street", // Possíveis valores: "Street", "Custom" ou "Trail"
+  "category": "Street", // Valores aceitos: "Street", "Custom" ou "Trail"
   "engineCapacity": 600
 }
 ```
@@ -349,6 +350,7 @@ Projeto desenvolvido por Guilherme Garcia. Seguem abaixo minhas redes sociais e 
 [mongoose-url]: https://mongoosejs.com/
 [node-url]: https://nodejs.org/en/
 [sinon-url]: https://sinonjs.org/
+[typescript-url]: https://www.typescriptlang.org/
 
 <!-- Contact URLs & Badges -->
 
