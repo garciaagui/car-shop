@@ -5,7 +5,7 @@ import Motorcycle from '../../../src/Domains/Motorcycle';
 import MotorcycleService from '../../../src/Services/MotorcycleService';
 import { validInput } from './Mocks/motorcycleMocks';
 
-describe('Testes de unidade de exclusão do Service de Motorcycle', function () {
+describe('Exclusão de motos [Service]', function () {
   afterEach(function () {
     sinon.restore();
   });
@@ -27,7 +27,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     expect(result).to.be.deep.equal(undefined);
   });
 
-  it('Retorna uma exceção quando nenhuma moto for encontrada', async function () {
+  it('Retorna uma EXCEÇÃO quando nenhuma moto for encontrada', async function () {
     // Arrange
     const noMotorcycleId = '63320b77aa12f0db4f210afe';
 
@@ -44,7 +44,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     } 
   });
 
-  it('Retorna uma exceção quando o id for inválido', async function () {
+  it('Retorna uma EXCEÇÃO quando o id for inválido', async function () {
     // Arrange
     const invalidId = 'xxx';
 

@@ -5,7 +5,7 @@ import Car from '../../../src/Domains/Car';
 import CarService from '../../../src/Services/CarService';
 import { validInput, validUpdateInput } from './Mocks/carMocks';
 
-describe('Testes de unidade de atualização do Service de Car', function () {
+describe('Atualização de carros [Service]', function () {
   afterEach(function () {
     sinon.restore();
   });
@@ -27,7 +27,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
     expect(result).to.be.deep.equal(updateOutput);
   });
 
-  it('Retorna uma exceção quando nenhum carro for encontrado', async function () {
+  it('Retorna uma EXCEÇÃO quando nenhum carro for encontrado', async function () {
     // Arrange
     const noCarId = '63320b77aa12f0db4f210aff';
 
@@ -44,7 +44,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
     } 
   });
 
-  it('Retorna uma exceção quando o id for inválido', async function () {
+  it('Retorna uma EXCEÇÃO quando o id for inválido', async function () {
     // Arrange
     const invalidId = 'xxx';
 
