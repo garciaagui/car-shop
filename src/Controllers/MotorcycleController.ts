@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleService from '../Services/MotorcycleService';
+import statusCodes from '../Utils/statusCodes';
 
 class MotorcycleController {
   private req: Request;
@@ -20,7 +21,7 @@ class MotorcycleController {
 
     try {
       const newMotorcycle = await this.service.create(motorcycle);
-      return this.res.status(201).json(newMotorcycle);
+      return this.res.status(statusCodes.created).json(newMotorcycle);
     } catch (error) {
       this.next(error);
     }
@@ -29,7 +30,7 @@ class MotorcycleController {
   public async getAll() {
     try {
       const motorcycles = await this.service.getAll();
-      return this.res.status(200).json(motorcycles);
+      return this.res.status(statusCodes.ok).json(motorcycles);
     } catch (error) {
       this.next(error);
     }
@@ -38,7 +39,7 @@ class MotorcycleController {
   public async getById() {
     try {
       const motorcycle = await this.service.getById(this.req.params.id);
-      return this.res.status(200).json(motorcycle);
+      return this.res.status(statusCodes.ok).json(motorcycle);
     } catch (error) {
       this.next(error);
     }
@@ -50,7 +51,7 @@ class MotorcycleController {
 
     try {
       const updatedMotorcycle = await this.service.updateById(id, updateContent);
-      return this.res.status(200).json(updatedMotorcycle);
+      return this.res.status(statusCodes.ok).json(updatedMotorcycle);
     } catch (error) {
       this.next(error);
     }
@@ -59,7 +60,7 @@ class MotorcycleController {
   public async deleteById() {
     try {
       await this.service.deleteById(this.req.params.id);
-      return this.res.status(204).json();
+      return this.res.status(statusCodes.noContent).json();
     } catch (error) {
       this.next(error);
     }
