@@ -51,24 +51,24 @@ class CarService {
     return this.createCarDomain(foundCar);
   }
 
-  public async update(id: string, car: ICar) {
+  public async updateById(id: string, car: ICar) {
     if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
     
     if (await this.getById(id)) {
       const carODM = new CarODM();
-      await carODM.update(id, car);
+      await carODM.updateById(id, car);
       return this.createCarDomain({ id, ...car }); 
     }
 
     throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
   }
 
-  public async delete(id: string) {
+  public async deleteById(id: string) {
     if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
     
     if (await this.getById(id)) {
       const carODM = new CarODM();
-      return carODM.delete(id);
+      return carODM.deleteById(id);
     }
 
     throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);

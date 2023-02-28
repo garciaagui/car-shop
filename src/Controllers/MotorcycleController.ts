@@ -44,21 +44,21 @@ class MotorcycleController {
     }
   }
 
-  public async update() {
+  public async updateById() {
     const updateContent: IMotorcycle = { ...this.req.body };
     const { id } = this.req.params;
 
     try {
-      const updatedMotorcycle = await this.service.update(id, updateContent);
+      const updatedMotorcycle = await this.service.updateById(id, updateContent);
       return this.res.status(200).json(updatedMotorcycle);
     } catch (error) {
       this.next(error);
     }
   }
 
-  public async delete() {
+  public async deleteById() {
     try {
-      await this.service.delete(this.req.params.id);
+      await this.service.deleteById(this.req.params.id);
       return this.res.status(204).json();
     } catch (error) {
       this.next(error);

@@ -23,22 +23,14 @@ abstract class AbstractODM<T> {
     return this.model.findOne({ _id });
   }
 
-  // public async update(_id: string, obj: Partial<T>): Promise<T | null> {
-  //   return this.model.findByIdAndUpdate(
-  //     { _id },
-  //     { ...obj } as UpdateQuery<T>,
-  //     { new: true, select: { model: 1, color: 1 } },
-  //   );
-  // }
-
-  public async update(_id: string, obj: Partial<T>) {
+  public async updateById(_id: string, obj: Partial<T>) {
     return this.model.updateOne(
       { _id },
       { $set: { ...obj } } as UpdateQuery<T>,
     );
   }
 
-  public async delete(_id: string) {
+  public async deleteById(_id: string) {
     return this.model.deleteOne({ _id });
   }
 }

@@ -21,7 +21,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
 
     // Act
     const service = new MotorcycleService();
-    const result = await service.delete(id);
+    const result = await service.deleteById(id);
 
     // Assert
     expect(result).to.be.deep.equal(undefined);
@@ -37,7 +37,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     // Act
     try {
       const service = new MotorcycleService();
-      await service.delete(noMotorcycleId);
+      await service.deleteById(noMotorcycleId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Motorcycle not found');
@@ -54,7 +54,7 @@ describe('Testes de unidade de exclusão do Service de Motorcycle', function () 
     // Act
     try {
       const service = new MotorcycleService();
-      await service.delete(invalidId);
+      await service.deleteById(invalidId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');

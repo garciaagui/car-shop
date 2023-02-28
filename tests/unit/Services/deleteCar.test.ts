@@ -20,7 +20,7 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
 
     // Act
     const service = new CarService();
-    const result = await service.delete(id);
+    const result = await service.deleteById(id);
 
     // Assert
     expect(result).to.be.deep.equal(undefined);
@@ -36,7 +36,7 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.delete(noCarId);
+      await service.deleteById(noCarId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Car not found');
@@ -53,7 +53,7 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.delete(invalidId);
+      await service.deleteById(invalidId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');

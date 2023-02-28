@@ -51,24 +51,24 @@ class MotorcycleService {
     return this.createMotorcycleDomain(foundMotorcycle);
   }
 
-  public async update(id: string, motorcycle: IMotorcycle) {
+  public async updateById(id: string, motorcycle: IMotorcycle) {
     if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
     
     if (await this.getById(id)) {
       const motorcycleODM = new MotorcycleODM();
-      await motorcycleODM.update(id, motorcycle);
+      await motorcycleODM.updateById(id, motorcycle);
       return this.createMotorcycleDomain({ id, ...motorcycle }); 
     }
 
     throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
   }
 
-  public async delete(id: string) {
+  public async deleteById(id: string) {
     if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
     
     if (await this.getById(id)) {
       const motorcycleODM = new MotorcycleODM();
-      return motorcycleODM.delete(id);
+      return motorcycleODM.deleteById(id);
     }
 
     throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);

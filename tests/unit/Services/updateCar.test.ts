@@ -21,7 +21,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
 
     // Act
     const service = new CarService();
-    const result = await service.update(id, validUpdateInput);
+    const result = await service.updateById(id, validUpdateInput);
 
     // Assert
     expect(result).to.be.deep.equal(updateOutput);
@@ -37,7 +37,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.update(noCarId, validUpdateInput);
+      await service.updateById(noCarId, validUpdateInput);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Car not found');
@@ -54,7 +54,7 @@ describe('Testes de unidade de atualização do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.update(invalidId, validUpdateInput);
+      await service.updateById(invalidId, validUpdateInput);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');

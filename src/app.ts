@@ -10,4 +10,3 @@ app.use('/motorcycles', MotorcycleRoutes);
 app.use(errorMiddleware);
 
 export default app;
-// 

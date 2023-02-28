@@ -44,21 +44,21 @@ class CarController {
     }
   }
 
-  public async update() {
+  public async updateById() {
     const updateContent: ICar = { ...this.req.body };
     const { id } = this.req.params;
 
     try {
-      const updatedCar = await this.service.update(id, updateContent);
+      const updatedCar = await this.service.updateById(id, updateContent);
       return this.res.status(200).json(updatedCar);
     } catch (error) {
       this.next(error);
     }
   }
 
-  public async delete() {
+  public async deleteById() {
     try {
-      await this.service.delete(this.req.params.id);
+      await this.service.deleteById(this.req.params.id);
       return this.res.status(204).json();
     } catch (error) {
       this.next(error);
