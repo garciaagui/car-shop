@@ -32,8 +32,8 @@ class CarService {
   }
 
   public async getAll() {
-    const paymentODM = new CarODM();
-    const cars = await paymentODM.getAll();
+    const carODM = new CarODM();
+    const cars = await carODM.getAll();
     const carsArr = cars.map((car) => this.createCarDomain(car));
     return carsArr;
   }
@@ -51,27 +51,26 @@ class CarService {
     return this.createCarDomain(foundCar);
   }
 
-  public async update(id: string, car: ICar) {
-    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+  public async updateById(id: string, car: ICar) {
+    this.validateById(id);
     
-    if (await this.getById(id)) {
-      const carODM = new CarODM();
-      await carODM.update(id, car);
-      return this.createCarDomain({ id, ...car }); 
-    }
-
-    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
+    const carODM = new CarODM();
+    await carODM.updateById(id, car);
+    return this.createCarDomain({ id, ...car });
   }
 
-  public async delete(id: string) {
-    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+  public async deleteById(id: string) {
+    this.validateById(id);
     
-    if (await this.getById(id)) {
-      const carODM = new CarODM();
-      return carODM.delete(id);
-    }
+    const carODM = new CarODM();
+    return carODM.deleteById(id);
+  }
 
-    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
+  private async validateById(id: string) {
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+  
+    const foundCar = await this.getById(id);
+    if (!foundCar) throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
   }
 }
 

@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import ICar from '../Interfaces/ICar';
 import CarService from '../Services/CarService';
+import statusCodes from '../Utils/statusCodes';
 
 class CarController {
   private req: Request;
@@ -20,7 +21,7 @@ class CarController {
 
     try {
       const newCar = await this.service.create(car);
-      return this.res.status(201).json(newCar);
+      return this.res.status(statusCodes.created).json(newCar);
     } catch (error) {
       this.next(error);
     }
@@ -29,7 +30,7 @@ class CarController {
   public async getAll() {
     try {
       const cars = await this.service.getAll();
-      return this.res.status(200).json(cars);
+      return this.res.status(statusCodes.ok).json(cars);
     } catch (error) {
       this.next(error);
     }
@@ -38,28 +39,28 @@ class CarController {
   public async getById() {
     try {
       const car = await this.service.getById(this.req.params.id);
-      return this.res.status(200).json(car);
+      return this.res.status(statusCodes.ok).json(car);
     } catch (error) {
       this.next(error);
     }
   }
 
-  public async update() {
+  public async updateById() {
     const updateContent: ICar = { ...this.req.body };
     const { id } = this.req.params;
 
     try {
-      const updatedCar = await this.service.update(id, updateContent);
-      return this.res.status(200).json(updatedCar);
+      const updatedCar = await this.service.updateById(id, updateContent);
+      return this.res.status(statusCodes.ok).json(updatedCar);
     } catch (error) {
       this.next(error);
     }
   }
 
-  public async delete() {
+  public async deleteById() {
     try {
-      await this.service.delete(this.req.params.id);
-      return this.res.status(204).json();
+      await this.service.deleteById(this.req.params.id);
+      return this.res.status(statusCodes.noContent).json();
     } catch (error) {
       this.next(error);
     }

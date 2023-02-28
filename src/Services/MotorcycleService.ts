@@ -51,27 +51,26 @@ class MotorcycleService {
     return this.createMotorcycleDomain(foundMotorcycle);
   }
 
-  public async update(id: string, motorcycle: IMotorcycle) {
-    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+  public async updateById(id: string, motorcycle: IMotorcycle) {
+    this.validateById(id);
     
-    if (await this.getById(id)) {
-      const motorcycleODM = new MotorcycleODM();
-      await motorcycleODM.update(id, motorcycle);
-      return this.createMotorcycleDomain({ id, ...motorcycle }); 
-    }
-
-    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
+    const motorcycleODM = new MotorcycleODM();
+    await motorcycleODM.updateById(id, motorcycle);
+    return this.createMotorcycleDomain({ id, ...motorcycle });
   }
 
-  public async delete(id: string) {
-    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+  public async deleteById(id: string) {
+    this.validateById(id);
     
-    if (await this.getById(id)) {
-      const motorcycleODM = new MotorcycleODM();
-      return motorcycleODM.delete(id);
-    }
+    const motorcycleODM = new MotorcycleODM();
+    return motorcycleODM.deleteById(id);
+  }
 
-    throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
+  private async validateById(id: string) {
+    if (!isValidObjectId(id)) throw new UnprocessableException(INVALID_ID_MESSAGE);
+  
+    const foundMotorcycle = await this.getById(id);
+    if (!foundMotorcycle) throw new NotFoundException(CAR_NOT_FOUND_MESSAGE);
   }
 }
 

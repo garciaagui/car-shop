@@ -5,12 +5,12 @@ import Motorcycle from '../../../src/Domains/Motorcycle';
 import MotorcycleService from '../../../src/Services/MotorcycleService';
 import { validInput } from './Mocks/motorcycleMocks';
 
-describe('Testes de unidade de cadastro do Service de Motorcycle', function () {
+describe('Cadastro de motos [Service]', function () {
   afterEach(function () {
     sinon.restore();
   });
   
-  it('Cadastra uma nova mota com SUCESSO', async function () {
+  it('Cadastra uma nova moto com SUCESSO', async function () {
     // Arrange
     const id = '63319d80feb9f483ee823ac5';
     const output = new Motorcycle({ id, ...validInput });

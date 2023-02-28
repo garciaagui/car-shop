@@ -5,7 +5,7 @@ import Motorcycle from '../../../src/Domains/Motorcycle';
 import MotorcycleService from '../../../src/Services/MotorcycleService';
 import { validInput, validUpdateInput } from './Mocks/motorcycleMocks';
 
-describe('Testes de unidade de atualização do Service de Motorcycle', function () {
+describe('Atualização de motos [Service]', function () {
   afterEach(function () {
     sinon.restore();
   });
@@ -21,13 +21,13 @@ describe('Testes de unidade de atualização do Service de Motorcycle', function
 
     // Act
     const service = new MotorcycleService();
-    const result = await service.update(id, validUpdateInput);
+    const result = await service.updateById(id, validUpdateInput);
 
     // Assert
     expect(result).to.be.deep.equal(updateOutput);
   });
 
-  it('Retorna uma exceção quando nenhuma moto for encontrada', async function () {
+  it('Retorna uma EXCEÇÃO quando nenhuma moto for encontrada', async function () {
     // Arrange
     const noMotorcycleId = '63320b77aa12f0db4f210afe';
 
@@ -37,14 +37,14 @@ describe('Testes de unidade de atualização do Service de Motorcycle', function
     // Act
     try {
       const service = new MotorcycleService();
-      await service.update(noMotorcycleId, validUpdateInput);
+      await service.updateById(noMotorcycleId, validUpdateInput);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Motorcycle not found');
     } 
   });
 
-  it('Retorna uma exceção quando o id for inválido', async function () {
+  it('Retorna uma EXCEÇÃO quando o id for inválido', async function () {
     // Arrange
     const invalidId = 'xxx';
 
@@ -54,7 +54,7 @@ describe('Testes de unidade de atualização do Service de Motorcycle', function
     // Act
     try {
       const service = new MotorcycleService();
-      await service.update(invalidId, validUpdateInput);
+      await service.updateById(invalidId, validUpdateInput);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');

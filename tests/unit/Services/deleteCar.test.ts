@@ -5,7 +5,7 @@ import Car from '../../../src/Domains/Car';
 import CarService from '../../../src/Services/CarService';
 import { validInput } from './Mocks/carMocks';
 
-describe('Testes de unidade de exclusão do Service de Car', function () {
+describe('Exclusão de carros [Service]', function () {
   afterEach(function () {
     sinon.restore();
   });
@@ -20,13 +20,13 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
 
     // Act
     const service = new CarService();
-    const result = await service.delete(id);
+    const result = await service.deleteById(id);
 
     // Assert
     expect(result).to.be.deep.equal(undefined);
   });
 
-  it('Retorna uma exceção quando nenhum carro for encontrado', async function () {
+  it('Retorna uma EXCEÇÃO quando nenhum carro for encontrado', async function () {
     // Arrange
     const noCarId = '63320b77aa12f0db4f210aff';
 
@@ -36,14 +36,14 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.delete(noCarId);
+      await service.deleteById(noCarId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Car not found');
     } 
   });
 
-  it('Retorna uma exceção quando o id for inválido', async function () {
+  it('Retorna uma EXCEÇÃO quando o id for inválido', async function () {
     // Arrange
     const invalidId = 'xxx';
 
@@ -53,7 +53,7 @@ describe('Testes de unidade de exclusão do Service de Car', function () {
     // Act
     try {
       const service = new CarService();
-      await service.delete(invalidId);
+      await service.deleteById(invalidId);
     } catch (error) {
       // Assert
       expect((error as Error).message).to.be.equal('Invalid mongo id');
