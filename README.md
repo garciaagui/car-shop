@@ -30,7 +30,7 @@ To guarantee that the code works properly, unit tests were created with the BDD 
 
 <br/>
 
-## Tecnologias
+## Technologies
 
 <details>
   <summary><strong>💻 Development </strong></summary><br />
