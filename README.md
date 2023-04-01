@@ -1,39 +1,39 @@
 <a name="readme-top"></a>
 
-<h1 align="center">Projeto Car Shop 🚙🛵</h1>
+<h1 align="center">Project Car Shop 🚙🛵</h1>
 
-<details>
-  <summary>Sumário</summary><br />
-  <ol>
-    <li><a href="#sobre-o-projeto">Sobre o Projeto</a></li>
-    <li><a href="#tecnologias">Tecnologias</a></li>
-    <li><a href="#funcionalidades">Funcionalidades</a></li>
-    <li><a href="#como-executar-o-projeto">Como Executar o Projeto</a></li>
-    <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
-    <li><a href="#sobre-a-trybe">Sobre a Trybe</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ol>
-</details>
+> [🇧🇷 Clique aqui para acessar a versão em português.](README_pt-br.md)
 
-## Sobre o Projeto
+## Summary
 
-Projeto **27** do curso de Desenvolvimento Web da [Trybe][trybe-site-url].
+<ol>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#how-to-run">How to Run</a></li>
+  <li><a href="#endpoints">Endpoints</a></li>
+  <li><a href="#about-trybe">About Trybe</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ol>
 
-Neste projeto, foi desenvolvida uma API para gerenciamento de uma concessionária de veículos, que permite realizar as operações de criação, visualização, atualização e deleção (CRUD) de carros e motos.
+## Description
 
-A aplicação foi desenvolvida utilizando Node.js e TypeScript, e o banco de dados escolhido foi o MongoDB. A conexão com o banco de dados foi feita através do framework Mongoose, ODM (Object-Document Mapping) que facilita as interações com o MongoDB.
+**27th project** of the [Trybe][trybe-site-url] Web Development course.
 
-Para garantir a qualidade do código, foram aplicados princípios importantes de desenvolvimento de software, como POO (Programação Orientada a Objetos), SOLID e DDD (Domain Driven Design). Com isso, a aplicação torna-se mais escalável e performática.
+In this project, an API for managing a vehicle dealership was developed, which allows the creation, viewing, updating, and deletion (CRUD) of cars and motorcycles.
 
-Para assegurar que o código funcione adequadamente, foram criados testes unitários com a abordagem BDD (Behavior-driven development). Esse processo garante que a aplicação esteja sempre em bom estado e pronta para receber atualizações.
+The application was developed using Node.js and TypeScript, and the chosen database was MongoDB. The connection to the database was made through the Mongoose framework, an Object-Document Mapping (ODM) that facilitates interactions with MongoDB.
+
+To ensure code quality, important software development principles such as OOP (Object-Oriented Programming), SOLID and DDD (Domain Driven Design) were applied. This makes the application more scalable and performant.
+
+To guarantee that the code works properly, unit tests were created with the BDD (Behavior-driven development) approach. This process ensures that the application is always in good condition and ready to receive updates.
 
 <br/>
 
 ## Tecnologias
 
 <details>
-  <summary><strong>💻 Desenvolvimento </strong></summary><br />
+  <summary><strong>💻 Development </strong></summary><br />
 
 - [Docker][docker-url]
 - [dotenv][dotenv-url]
@@ -48,7 +48,7 @@ Para assegurar que o código funcione adequadamente, foram criados testes unitá
 </details>
 
 <details>
-  <summary><strong>🧪 Testes </strong></summary><br />
+  <summary><strong>🧪 Testing </strong></summary><br />
 
 - [Chai][chai-url]
 - [Mocha][mocha-url]
@@ -59,7 +59,7 @@ Para assegurar que o código funcione adequadamente, foram criados testes unitá
 </details>
 
 <details>
-  <summary><strong>✨ Alinhamento e qualidade de código </strong></summary><br />
+  <summary><strong>✨ Code alignment and quality </strong></summary><br />
 
 - [ESLint][eslint-url]
 
@@ -69,62 +69,62 @@ Para assegurar que o código funcione adequadamente, foram criados testes unitá
 
 <br/>
 
-## Funcionalidades
+## Features
 
 <ul>
-  <li>Criar, listar, atualizar e deletar carros.</li>
-  <li>Criar, listar, atualizar e deletar motos.</li>
+  <li>Create, list, update, and delete cars.</li>
+  <li>Create, list, update, and delete motorcycles.</li>
 </ul>
 
 <br/>
 
-## Como Executar o Projeto
+## How to Run
 
-Para rodar o projeto, siga os passos abaixo.
+To run the project, follow the steps below.
 
-1. Clone o repositório;
-
-```
-git clone git@github.com:garciaagui/trybe-project-27_car-shop.git
-```
-
-2. Navegue até a raiz do projeto;
+1. Clone the repository;
 
 ```
-cd trybe-project-27_car-shop/
+git clone git@github.com:garciaagui/car-shop.git
 ```
 
-> 🔘 Agora, decida se o projeto será rodado localmente ou via Docker.
+2. Navigate to the project root;
+
+```
+cd car-shop/
+```
+
+> ⚠️ Now, decide whether the project will be run locally or via Docker.
 
 <details>
-  <summary><strong>💽 Localmente</strong></summary>
+  <summary><strong>💽 Locally</strong></summary>
 
-1. Certifique-se que você tenha o **node** instalado na versão 16 ou superior. Confira [aqui](https://nodejs.org/pt-br/download/package-manager/) a documentação oficial.
+1. Make sure you have **Node.js** installed in version 16 or higher. Check out the [official documentation](https://nodejs.org/en/download/package-manager) for more information.
 
-2. Na raiz do projeto, instale as dependências do projeto.
+2. In the project root, install the project dependencies.
 
 ```
 npm install
 ```
 
-3. Configure as variáveis de ambiente:
+3. Configure the environment variables:
 
-- Renomeie o arquivo `.env.example` (disponível na raíz do projeto) para `.env`;
-- Configure as variáveis para o seu contexto local.
+- Rename the `.env.example` file (available in the project root) to `.env`;
+- Set the variables for your local environment.
 
-4. Para iniciar o servidor, utilize o comando abaixo.
+4. Start the server:
 
 ```
 npm run dev
 ```
 
-- Para executar os testes, você pode utilizar os dois comandos abaixo.
+- To run the tests, you can use the two commands below.
 
 ```
-// Comando 1
+// Command 1
 npm run test:mocha
 
-// Comando 2 - Neste comando você tem acesso à cobertura dos testes
+// Command 2 - In this command you have access to the test coverage
 npm run test:coverage
 ```
 
@@ -133,48 +133,48 @@ npm run test:coverage
 <details>
   <summary><strong>🐋 Docker</strong></summary>
   
-1. Certifique-se que você tenha o **docker-compose** instalado na versão 1.29 ou superior. Links oportunos caso você precise instalar ou atualizar: [Tutorial DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt) e [documentação oficial](https://docs.docker.com/compose/install/);
+1. Make sure you have **docker-compose** installed in version 1.29 or higher. Useful links if you need to install or update: [DigitalOcean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04) and [official documentation](https://docs.docker.com/compose/install/);
 
-2. Suba os containers executando o comando abaixo. Dois containers serão inicializados: `car_shop` (node) e `car_shop_db` (mysql).
+2. Bring up the containers by running the command below. Two containers will be initialized: `car_shop` (node) and `car_shop_db` (mysql).
 
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
 
-3. Acesse a CLI do container `car_shop` com o comando abaixo ou abra-o no VS Code. Para a última opção, recomendo a extensão da Microsoft [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+3. Access the CLI of the `car_shop` container with the command below or open it in VS Code. For the latter option, I recommend the Microsoft extension [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 ```
 docker exec -it car_shop bash
 ```
 
-> ⚠️ A partir de agora, **TODOS** os comandos (scripts) disponíveis no `package.json` (incluindo o npm install) devem ser executados **DENTRO** do container `car_shop`.
+> ⚠️ From now on, **ALL** commands (scripts) available in `package.json` (including npm install) must be executed **INSIDE** the `car_shop` container.
 
-4. Instale as dependências do projeto.
+4. Install the project dependencies.
 
 ```
 npm install
 ```
 
-5. Para iniciar o servidor, utilize um dos comandos abaixo.
+5. Start the server:
 
 ```
 npm run dev
 ```
 
-- Para executar os testes, você pode utilizar os dois comandos abaixo.
+- To run the tests, you can use the two commands below.
 
 ```
-// Comando 1
+// Command 1
 npm run test:mocha
 
-// Comando 2 - Neste comando você tem acesso à cobertura dos testes
+// Command 2 - In this command you have access to the test coverage
 npm run test:coverage
 ```
 
-- Para o contexto de teste local, siga os passos abaixo.
+- For the local test context, follow the steps below:
 
-1. Renomeie o arquivo `.env.example` (disponível na raíz do projeto) para `.env`;
-2. Configure as variáveis para o seu contexto local.
+1. Rename the `.env.example` file (available in the project root) to `.env`;
+2. Set the variables for your local environment.
 
 </details>
 
@@ -182,30 +182,30 @@ npm run test:coverage
 
 ## Endpoints
 
-Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. Para realizar as requisições HTTP e consultar o comportamento de cada endpoint, você pode utilizar a extensão [Thunder Client](https://www.thunderclient.com/).
+Below you can find a breakdown of the endpoints used in the project. To make HTTP requests and check the behavior of each endpoint, you can use the [Thunder Client](https://www.thunderclient.com/) extension.
 
-> ℹ️ Para todos os endpoints que exijam o id dos carros e motos, atente-se que o id é um `ObjectId`. Saiba mais sobre ObjectId [aqui](https://www.mongodb.com/docs/manual/reference/bson-types/#objectid).
+> ℹ️ For all endpoints that require the id of cars and motorcycles, note that the id is an `ObjectId`. Learn more about ObjectId [here](https://www.mongodb.com/docs/manual/reference/bson-types/#objectid).
 
 <details>
   <summary><strong>Cars</strong></summary>
 
 ### GET /cars
 
-- Retorna todos os carros registrados no banco de dados.
+- Returns all cars registered in the database.
 - URL: `http://localhost:PORT/cars`
 
 ### POST /cars
 
-- Adiciona um novo carro ao banco de dados.
+- Adds a new car to the database.
 - URL: `http://localhost:PORT/cars`
-- O corpo da requisição deve seguir o formato abaixo:
+- The request body must follow the format below:
 
 ```
 {
   "model": "Marea",
   "year": 2002,
   "color": "Black",
-  "status": true, // Não é obrigatório. Se não for inserido, o valor do status será 'false'
+  "status": true, // Not required. If not inserted, the value of status will be 'false'
   "buyValue": 15.990,
   "doorsQty": 4,
   "seatsQty": 5
@@ -214,21 +214,21 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 ### GET /cars/:id
 
-- Retorna o carro cujo id foi passado na URL.
-- Exemplo de URL: `http://localhost:PORT/cars/634852326b35b59438fbea2f`
+- Returns the car whose id was passed in the URL.
+- Example URL: `http://localhost:PORT/cars/634852326b35b59438fbea2f`
 
 ### PUT /cars/:id
 
-- Atualiza o carro cujo id foi passado na URL.
-- Exemplo de URL: `http://localhost:PORT/cars/634852326b35b59438fbea2f`
-- O corpo da requisição deve seguir o formato abaixo:
+- Updates the car whose id was passed in the URL.
+- Example URL: `http://localhost:PORT/cars/634852326b35b59438fbea2f`
+- The request body must follow the format below:
 
 ```
 {
   "model": "Marea",
   "year": 1992,
   "color": "Red",
-  "status": true, // Não é obrigatório. Se não for inserido, o valor do status será 'false'
+  "status": true, // Not required. If not inserted, the value of status will be 'false'
   "buyValue": 12.000,
   "doorsQty": 2,
   "seatsQty": 5
@@ -237,8 +237,8 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 ### DELETE /cars/:id
 
-- Remove do banco de dados o carro cujo id foi passado na URL.
-- Exemplo de URL: `http://localhost:PORT/cars/634852326b35b59438fbea2f`
+- Removes from the database the car whose id was passed in the URL.
+- Example URL: `http://localhost:PORT/cars/634852326b35b59438fbea2f`
 
 ---
 
@@ -249,54 +249,54 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 ### GET /motorcycles
 
-- Retorna todas as motos registradas no banco de dados.
+- Returns all motorcycles registered in the database.
 - URL: `http://localhost:PORT/motorcycles`
 
 ### POST /motorcycles
 
-- Adiciona uma nova moto ao banco de dados.
+- Adds a new motorcycle to the database.
 - URL: `http://localhost:PORT/motorcycles`
-- O corpo da requisição deve seguir o formato abaixo:
+- The request body must follow the format below:
 
 ```
 {
   "model": "Honda Cb 600f Hornet",
   "year": 2005,
   "color": "Yellow",
-  "status": true, // Não é obrigatório. Se não for inserido, o valor do status será 'false'
+  "status": true, // Not required. If not inserted, the value of status will be 'false'
   "buyValue": 30.000,
-  "category": "Street", // Valores aceitos: "Street", "Custom" ou "Trail"
+  "category": "Street", // Accepted values: "Street", "Custom" or "Trail"
   "engineCapacity": 600
 }
 ```
 
 ### GET /motorcycles/:id
 
-- Retorna a moto cujo id foi passado na URL.
-- Exemplo de URL: `http://localhost:PORT/motorcycles/634852326b35b59438fbea2f`
+- Returns the motorcycle whose id was passed in the URL.
+- Example URL: `http://localhost:PORT/motorcycles/634852326b35b59438fbea2f`
 
 ### PUT /motorcycles/:id
 
-- Atualiza a moto cujo id foi passado na URL.
-- Exemplo de URL: `http://localhost:PORT/motorcycles/634852326b35b59438fbea2f`
-- O corpo da requisição deve seguir o formato abaixo:
+- Updates the motorcycle whose id was passed in the URL.
+- Example URL: `http://localhost:PORT/motorcycles/634852326b35b59438fbea2f`
+- The request body must follow the format below:
 
 ```
 {
   "model": "Honda Cb 600f Hornet",
   "year": 2014,
   "color": "Red",
-  "status": true, // Não é obrigatório. Se não for inserido, o valor do status será 'false'
+  "status": true, // Not required. If not inserted, the value of status will be 'false'
   "buyValue": 45.000,
-  "category": "Street", // Valores aceitos: "Street", "Custom" ou "Trail"
+  "category": "Street", // Accepted values: "Street", "Custom" or "Trail"
   "engineCapacity": 600
 }
 ```
 
 ### DELETE /motorcycles/:id
 
-- Remove do banco de dados a moto cujo id foi passado na URL.
-- Exemplo de URL: `http://localhost:PORT/motorcycles/634852326b35b59438fbea2f`
+- Removes from the database the motorcycle whose id was passed in the URL.
+- Example URL: `http://localhost:PORT/motorcycles/634852326b35b59438fbea2f`
 
 ---
 
@@ -304,28 +304,17 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 <br/>
 
-## Habilidades
+## About Trybe
 
-<ul>
-  <li>Implementação de operações CRUD.</li>
-  <li>Modelagem de dados com o ODM Mongoose.</li>
-  <li>Aplicação dos conceitos POO, SOLID e DDD.</li>
-  <li>Aplicação da metodologia BDD para criação de testes.</li>
-</ul>
+_"[Trybe][trybe-site-url] is a future school for anyone who wants to improve their lives and build a successful career in technology, where the person only pays when they get a good job."_
+
+_"The program features over 1,500 hours of online classes covering introduction to software development, front-end, back-end, computer science, software engineering, agile methodologies, and behavioral skills."_
 
 <br/>
 
-## Sobre a Trybe
+## Contact
 
-_"A [Trybe][trybe-site-url] é uma escola do futuro para qualquer pessoa que queira melhorar de vida e construir uma carreira de sucesso em tecnologia, onde a pessoa só paga quando conseguir um bom trabalho."_
-
-_"O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais._"
-
-<br/>
-
-## Contato
-
-Projeto desenvolvido por Guilherme Garcia. Seguem abaixo minhas redes sociais e meios de contato. 🤘
+Project developed by **Guilherme Garcia**. Below are my social networks and means of contact. 🤘
 
 [![Gmail][gmail-badge]][gmail-url]
 [![Linkedin][linkedin-badge]][linkedin-url]
