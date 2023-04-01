@@ -4,18 +4,17 @@
 
 > [🇺🇸 Click here to access the English version.](README.md)
 
-<details>
-  <summary>Sumário</summary><br />
-  <ol>
-    <li><a href="#sobre-o-projeto">Sobre o Projeto</a></li>
-    <li><a href="#tecnologias">Tecnologias</a></li>
-    <li><a href="#funcionalidades">Funcionalidades</a></li>
-    <li><a href="#como-executar-o-projeto">Como Executar o Projeto</a></li>
-    <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#sobre-a-trybe">Sobre a Trybe</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ol>
-</details>
+## Sumário
+
+<ol>
+  <li><a href="#sobre-o-projeto">Sobre o Projeto</a></li>
+  <li><a href="#tecnologias">Tecnologias</a></li>
+  <li><a href="#funcionalidades">Funcionalidades</a></li>
+  <li><a href="#como-executar-o-projeto">Como Executar o Projeto</a></li>
+  <li><a href="#endpoints">Endpoints</a></li>
+  <li><a href="#sobre-a-trybe">Sobre a Trybe</a></li>
+  <li><a href="#contato">Contato</a></li>
+</ol>
 
 ## Sobre o Projeto
 
