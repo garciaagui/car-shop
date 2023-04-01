@@ -2,6 +2,8 @@
 
 <h1 align="center">Projeto Car Shop 🚙🛵</h1>
 
+> [🇺🇸 Click here to access the English version.](README.md)
+
 <details>
   <summary>Sumário</summary><br />
   <ol>
@@ -10,7 +12,6 @@
     <li><a href="#funcionalidades">Funcionalidades</a></li>
     <li><a href="#como-executar-o-projeto">Como Executar o Projeto</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
     <li><a href="#sobre-a-trybe">Sobre a Trybe</a></li>
     <li><a href="#contato">Contato</a></li>
   </ol>
@@ -85,13 +86,13 @@ Para rodar o projeto, siga os passos abaixo.
 1. Clone o repositório;
 
 ```
-git clone git@github.com:garciaagui/trybe-project-27_car-shop.git
+git clone git@github.com:garciaagui/car-shop.git
 ```
 
 2. Navegue até a raiz do projeto;
 
 ```
-cd trybe-project-27_car-shop/
+cd car-shop/
 ```
 
 > 🔘 Agora, decida se o projeto será rodado localmente ou via Docker.
@@ -304,22 +305,11 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 <br/>
 
-## Habilidades
-
-<ul>
-  <li>Implementação de operações CRUD.</li>
-  <li>Modelagem de dados com o ODM Mongoose.</li>
-  <li>Aplicação dos conceitos POO, SOLID e DDD.</li>
-  <li>Aplicação da metodologia BDD para criação de testes.</li>
-</ul>
-
-<br/>
-
 ## Sobre a Trybe
 
 _"A [Trybe][trybe-site-url] é uma escola do futuro para qualquer pessoa que queira melhorar de vida e construir uma carreira de sucesso em tecnologia, onde a pessoa só paga quando conseguir um bom trabalho."_
 
-_"O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais._"
+_"O programa conta com mais de 1.500 horas de aulas online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais._"
 
 <br/>
 
